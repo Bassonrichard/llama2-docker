@@ -1,0 +1,21 @@
+version: '3.4'
+
+services:
+  llama:
+    container_name: llama
+    image: llama2:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - PRESIGNED_URL=<PRESIGNED_URL>
+        - MODEL_SIZE=7B-chat
+    deploy:
+     resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+    
