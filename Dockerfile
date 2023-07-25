@@ -1,6 +1,10 @@
 # Use an official Python runtime as a parent image
 FROM python:3.8-slim-buster
 
+# download args
+ARG PRESIGNED_URL
+ARG MODEL_SIZE
+
 # Set the working directory in the container to /app
 WORKDIR /app
 
@@ -18,7 +22,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     wget \
     && rm -rf /var/lib/apt/lists/*
 
-RUN ./download.sh
+RUN ./download.sh $PRESIGNED_URL $MODEL_SIZE
 
 # Install any needed packages specified in requirements.txt
 RUN pip install -e .

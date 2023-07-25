@@ -18,7 +18,7 @@ Once you have the download link, you can add it to the `download.sh` file in the
 
 Build the image
 ```bash
-    docker build -t llama2:latest .
+    docker build -t llama2:latest --build-args PRESIGNED_URL=<PRESIGNED_URL> --build-args MODEL_SIZE=<MODEL_SIZE> .
 ```
 
 Run the image

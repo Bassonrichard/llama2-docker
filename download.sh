@@ -6,8 +6,8 @@
 #read -p "Enter the URL from email: " PRESIGNED_URL
 #echo ""
 #read -p "Enter the list of models to download without spaces (7B,13B,70B,7B-chat,13B-chat,70B-chat), or press Enter for all: " MODEL_SIZE
-PRESIGNED_URL=""
-MODEL_SIZE="7B-chat"
+PRESIGNED_URL="$1"
+MODEL_SIZE="$2"
 
 TARGET_FOLDER="."             # where all files should end up
 mkdir -p ${TARGET_FOLDER}
